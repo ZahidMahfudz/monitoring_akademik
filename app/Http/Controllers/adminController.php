@@ -13,7 +13,9 @@ class adminController extends Controller
         echo "<a href='/logout'>Logout</a>";
     }
     function operator(){
-        return view('index');
+        echo "selamat datang operator";
+        echo "<h1>". Auth::user()->name ."</h1>";
+        echo "<a href='/logout'>Logout</a>";
     }
     function mahasiswa(){
         echo "selamat datang mahasiswa";
