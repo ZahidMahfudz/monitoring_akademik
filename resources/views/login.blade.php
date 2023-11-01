@@ -11,7 +11,8 @@
 <body>
     <div class="container py-5">
         <div class="w-50 center border rounded px-3 py-3 mx-auto">
-        <h1>Login</h1>
+            <img class="mb-4" src="img/Logo Undip Universitas Diponegoro.png" alt="" width="100" height="100">
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
