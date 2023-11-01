@@ -13,9 +13,7 @@ class adminController extends Controller
         echo "<a href='/logout'>Logout</a>";
     }
     function operator(){
-        echo "selamat datang operator";
-        echo "<h1>". Auth::user()->name ."</h1>";
-        echo "<a href='/logout'>Logout</a>";
+        return view('index');
     }
     function mahasiswa(){
         echo "selamat datang mahasiswa";
@@ -30,6 +28,6 @@ class adminController extends Controller
     function departemen(){
         echo "selamat datang departemen";
         echo "<h1>". Auth::user()->name ."</h1>";
-        echo "<a href='logout'>Logout</a>";
+        echo "<a href='/logout'>Logout</a>";
     }
 }
