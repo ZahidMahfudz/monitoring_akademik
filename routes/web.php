@@ -29,5 +29,4 @@ Route::get('/home', function(){
     Route::get('/admin/doswal', [adminController::class, 'doswal']);
     Route::get('/admin/departemen', [adminController::class, 'departemen']);
     Route::get('/logout', [SesiController::class, 'logout']);
-    Route::get('/logout', [SesiController::class, 'logout']);
 // });
