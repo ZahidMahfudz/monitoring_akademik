@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\adminController;
-use App\Http\Controllers\SesiController;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SesiController;
+use App\Http\Controllers\adminController;
+use App\Http\Controllers\OperatorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +33,4 @@ Route::get('/home', function(){
     Route::get('/logout', [SesiController::class, 'logout']);
 // });
 
-
+Route::post('/operator/addmahasiswa', [OperatorController::class, 'addmahasiswa']);
