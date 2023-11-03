@@ -1,4 +1,5 @@
 <form method="POST" action="/mahasiswa/store">
+<link href="/css/srs1.css" rel="stylesheet">
     @csrf
     <div class="form-group">
         <label for="nim">NIM:</label>
