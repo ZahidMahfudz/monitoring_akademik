@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use app\Models\User;
+use App\Models\User;
 use App\Models\Mahasiswa;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -31,17 +31,12 @@ class OperatorController extends Controller
         'status' => $request->input('status'),
     ]);
 
-    // // Generate akun pengguna
-    // $user = new User();
-    // $user->name = $request->input('nama');
-    // $user->email = $request->input('NIM') . '@example.com';
-    // $user->password = str::str_random(8); // Ganti dengan kata sandi yang aman
-    // $user->role = 'mahasiswa';
-    // $user->save();
+
     $user = User::create([
         'name'=>$request->input('nama'),
         'email'=>$request->input('nama').'@gmail.com',
-        'password'=>$request->input(str::str_random(8))
+        'password'=>bcrypt('mahasiswa@123'),
+        'role'=>'mahasiswa'
     ]);
 
     return redirect('/admin/operator')->with('success', 'Data mahasiswa dan akun pengguna berhasil ditambahkan.');
