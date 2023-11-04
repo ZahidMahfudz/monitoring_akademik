@@ -13,7 +13,7 @@ class adminController extends Controller
         echo "<a href='/logout'>Logout</a>";
     }
     function operator(){
-        return view('operator.addmahasiswa');
+        return view('operator.index');
     }
     function mahasiswa(){
         return view('mahasiswa.index');

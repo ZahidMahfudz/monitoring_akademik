@@ -33,4 +33,8 @@ Route::get('/home', function(){
     Route::get('/logout', [SesiController::class, 'logout']);
 // });
 
+
+Route::get('/addmahasiswa', function(){
+    return view('operator/addmahasiswa');
+});
 Route::post('/operator/addmahasiswa', [OperatorController::class, 'addmahasiswa']);

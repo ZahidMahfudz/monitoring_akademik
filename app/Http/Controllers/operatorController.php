@@ -16,30 +16,34 @@ class OperatorController extends Controller
     }
     public function addmahasiswa(Request $request){
          // Validasi input data mahasiswa
-        $validator= validator::make($request->all(),[
-            'nim'=>'required',
-            'nama'=>'required',
-            'angkatan'=>'reuqired',
-        ]);
+    //    dd($request->except('_token'));
+       $request->validate([
+        'NIM' => 'required',
+        'nama' => 'required',
+        'angkatan' => 'required',
+        'status' => 'required',
+    ]);
 
-         if($validator ->fails()) return redirect()->back()->withInput()->withErrors($validator);
+    $mahasiswa = Mahasiswa::create([
+        'NIM' => $request->input('NIM'),
+        'nama' => $request->input('nama'),
+        'angkatan' => $request->input('angkatan'),
+        'status' => $request->input('status'),
+    ]);
 
-       //  Simpan data mahasiswa ke dalam database
-        // $mahasiswa = Mahasiswa::create([
-        //     'nim' => $request->nim,
-        //     'nama' => $request->nama,
-        //     'angkatan' => $request->angkatan,
-        //     'status' => 'AKTIF',
-        // ]);
+    // // Generate akun pengguna
+    // $user = new User();
+    // $user->name = $request->input('nama');
+    // $user->email = $request->input('NIM') . '@example.com';
+    // $user->password = str::str_random(8); // Ganti dengan kata sandi yang aman
+    // $user->role = 'mahasiswa';
+    // $user->save();
+    $user = User::create([
+        'name'=>$request->input('nama'),
+        'email'=>$request->input('nama').'@gmail.com',
+        'password'=>$request->input(str::str_random(8))
+    ]);
 
-        // // Generate akun akses
-        // $user = User::create([
-        //     'name' => $validatedData['nama'],
-        //     'email' => $validatedData['nim'] . '@example.com', // Ganti dengan format email yang sesuai
-        //     'password' => bcrypt(Str::random(8)), // Generate kata sandi acak
-        // ]);
-
-        // Tampilkan respons sukses
-        return redirect('/operator/addmahasiswa')->with('success', 'Data mahasiswa dan akun akses berhasil ditambahkan.');
+    return redirect('/admin/operator')->with('success', 'Data mahasiswa dan akun pengguna berhasil ditambahkan.');
     }
 }
