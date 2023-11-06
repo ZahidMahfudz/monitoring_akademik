@@ -29,5 +29,15 @@
         </select>
     </div>
 
+    <div>
+        <label for="doswal">Dosen Wali:</label>
+        <select name="doswal" id="doswal" class="form-control">
+                <option value="1">APW</option>
+                <option value="2">Malik</option>
+                <option value="3">Eng</option>
+        </select>
+    </div>
+
+
     <button type="submit" class="btn btn-primary">Unggah Data</button>
 </form>

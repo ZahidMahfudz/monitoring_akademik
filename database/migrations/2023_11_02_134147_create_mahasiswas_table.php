@@ -24,6 +24,7 @@ return new class extends Migration
         $table->string('no_hp')->nullable();
         $table->enum('status', ['AKTIF', 'TIDAK AKTIF'])->nullable();
         $table->binary('foto_mahasiswa')->nullable();
+        $table->foreignId('doswal_id')->nullable();
         $table->timestamps();
     });
 }

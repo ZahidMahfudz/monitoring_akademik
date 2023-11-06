@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Mahasiswa;
+use App\Models\Doswal;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -29,6 +30,7 @@ class OperatorController extends Controller
         'nama' => $request->input('nama'),
         'angkatan' => $request->input('angkatan'),
         'status' => $request->input('status'),
+        'doswal_id' => $request->input('doswal'),
     ]);
 
 

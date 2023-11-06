@@ -33,6 +33,24 @@ class DummyUsersSeeder extends Seeder
                 'password'=>bcrypt('34567')
             ],
             [
+                'name'=>'Aris Puji Widodo',
+                'email'=>'Apw@gmail.com',
+                'role'=>'doswal',
+                'password'=>bcrypt('34567')
+            ],
+            [
+                'name'=>'Muhammad Malik Hakim',
+                'email'=>'MMH@gmail.com',
+                'role'=>'doswal',
+                'password'=>bcrypt('34567')
+            ],
+            [
+                'name'=>'Adi Wibowo',
+                'email'=>'AW@gmail.com',
+                'role'=>'doswal',
+                'password'=>bcrypt('34567')
+            ],
+            [
                 'name'=>' si departemen',
                 'email'=>'department@gmail.com',
                 'role'=>'departemen',

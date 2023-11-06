@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\OperatorController;
+use App\Models\Doswal;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,5 @@ Route::get('/home', function(){
 // });
 
 
-Route::get('/addmahasiswa', function(){
-    return view('operator/addmahasiswa');
-});
+Route::get('/addmahasiswa', [OperatorController::class, 'create']);
 Route::post('/operator/addmahasiswa', [OperatorController::class, 'addmahasiswa']);
