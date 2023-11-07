@@ -42,4 +42,5 @@ Route::post('/operator/addmahasiswa', [OperatorController::class, 'addmahasiswa'
 Route::get('/addskripsi', [MahasiswaController::class, 'createaddskripsi']);
 Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
 
+Route::get('/update', [MahasiswaController::class, 'updatemahasiswa']);
 

@@ -89,4 +89,8 @@ class MahasiswaController extends Controller
         return redirect('/addskripsi')->with('success', 'Data skripsi berhasil ditambahkan.');
 
     }
+    
+    public function updatemahasiswa(){
+        return view('mahasiswa.update');
+    }
 }
