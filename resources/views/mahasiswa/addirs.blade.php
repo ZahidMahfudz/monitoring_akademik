@@ -10,6 +10,12 @@
     <h1>IRS Mahasiswa</h1>
     <form action="{{ route('mahasiswa.addirs.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
+        
+        <div class="form-group">
+            <label for="nama">Nama:</label>
+            <input type="text" name="nama" class="form-control" value="{{ old('nama') }}">
+        </div>
+
         <div class="form-group">
             <label for="nim">NIM:</label>
             <input type="string" name="nim" class="form-control" value="{{ old('nim') }}" required>

@@ -11,6 +11,20 @@ class DoswalController extends Controller
     /**
      * Display a listing of the resource.
      */
+    function verification()
+    {
+        $irs = irs::all();
+        return view('sesi/verification')->with("irs", $irs);
+    }
+
+    function changeStatus($nim)
+    {
+        $irs = irs::find($nim);
+        $irs->idstatus = 1;
+        $irs->save();
+        return redirect('/dashboard')->with('success', 'Berhasil Balikin Buku !');
+    }
+    
     public function index()
     {
         //

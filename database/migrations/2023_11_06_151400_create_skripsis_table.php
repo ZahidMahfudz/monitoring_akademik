@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('lama_studi')->nullable();
             $table->date('tgl_lulus_sidang')->nullable();
             $table->binary('scan_berita_acara')->nullable();
-            $table->enum('aprove', ['BELUM DISETUJUI', 'SUDAH DISETUJUI']);
+            $table->enum('approve', ['BELUM DISETUJUI', 'SUDAH DISETUJUI']);
             $table->foreignId('doswal_id')->nullable();
             $table->timestamps();
         });

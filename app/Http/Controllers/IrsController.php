@@ -44,6 +44,7 @@ class IrsController extends Controller
         }
 
         $irs = new irs;
+        $irs->nama = $request->nama;
         $irs->nim = $request->nim; 
         $irs->semester = $request->semester; 
         $irs->sks = $request->sks;
