@@ -6,6 +6,17 @@
     <h1>Tambah skripsi</h1>
     <form action="/mahasiswa/addskripsi" method="POST">
         @csrf
+
+        <div class="form-group">
+            <label for="nama">Nama:</label>
+            <input type="text" name="nama" class="form-control" value="{{ old('nama') }}">
+        </div>
+
+        <div class="form-group">
+            <label for="NIM">NIM:</label>
+            <input type="text" name="NIM" class="form-control" value="{{ old('NIM') }}">
+        </div>
+
         <div class="form-group">
             <label for="status">Status Skripsi:</label>
             <select name="status" class="form-control">
@@ -17,7 +28,7 @@
 
         <div class="form-group">
             <label for="nilaiskripsi">nilai skripsi:</label>
-            <input type="number" name="nilaiskripsi" class="form-control" value="{{ old('nilaiskripsi') }}">
+            <input type="text" name="nilaiskripsi" class="form-control" value="{{ old('nilaiskripsi') }}">
         </div>
 
         <div class="form-group">
@@ -35,8 +46,18 @@
             <input type="file" name="scanberita" class="form-control" value="{{ old('scanberita') }}" accept=".pdf">
         </div>
 
+        <div>
+            <label for="doswal">Dosen Wali:</label>
+            <select name="doswal" id="doswal" class="form-control">
+                    <option value="1">APW</option>
+                    <option value="2">Malik</option>
+                    <option value="3">Eng</option>
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-primary">submit</button>
 
     </form>
 </body>
 </html>
+
