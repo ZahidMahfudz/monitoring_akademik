@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\mahasiswas;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\adminController;
@@ -43,9 +44,5 @@ Route::post('/operator/addmahasiswa', [OperatorController::class, 'addmahasiswa'
 Route::get('/addskripsi', [MahasiswaController::class, 'createaddskripsi']);
 Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
 
-// Route::get('/addirs', [IrsController::class, 'create']);
-// Route::post('/addirs/store', [IrsController::class, 'store']);
-// Route::get('/showirs', [IrsController::class, 'show']);
-
-Route::get('/mahasiswa/addirs', [IrsController::class, 'create']); 
-Route::post('/mahasiswa/addirs', [IrsController::class, 'store'])->name('mahasiswa.addirs.store');
+Route::get('/update', [MahasiswaController::class, 'updatemahasiswa']);
+Route::post('/update', [MahasiswaController::class, 'updatemhs']);

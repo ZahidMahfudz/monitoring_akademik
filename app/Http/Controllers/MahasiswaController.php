@@ -96,4 +96,23 @@ class MahasiswaController extends Controller
         return redirect('/addskripsi')->with('success', 'Data skripsi berhasil ditambahkan.');
 
     }
+
+    public function updatemahasiswa(){
+        $user = Auth::user()->name ;
+
+        $mahasiswa = Mahasiswa::where('nama', $user)->first();
+        
+
+        return view('mahasiswa.update', compact('mahasiswa'));
+    }
+
+    public function updatemhs(Request $request){   
+        $update = mahasiswa::update([
+            'jalur_masuk' =>$request->input('jalur_masuk'),
+            'email' =>$request->input('email'),
+            'no_telp'=>$request->input('no_telp')
+        ]);
+        return redirect('/update')->with('success', 'Data skripsi berhasil ditambahkan.');
+
+    }
 }
