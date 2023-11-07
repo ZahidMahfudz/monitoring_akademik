@@ -9,12 +9,12 @@
 
         <div class="form-group">
             <label for="nama">Nama:</label>
-            <input type="text" name="nama" class="form-control" value="{{ old('nama') }}">
+            <input type="text" name="nama" class="form-control" value="{{ $mahasiswa->nama }}">
         </div>
 
         <div class="form-group">
             <label for="NIM">NIM:</label>
-            <input type="text" name="NIM" class="form-control" value="{{ old('NIM') }}">
+            <input type="text" name="NIM" class="form-control" value="{{ $mahasiswa->NIM }}">
         </div>
 
         <div class="form-group">

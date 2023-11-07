@@ -69,7 +69,11 @@ class MahasiswaController extends Controller
     }
 
     public function createaddskripsi(){
-        return view('mahasiswa.addskripsi');
+        $user = Auth::user()->name;
+
+        $mahasiswa = Mahasiswa::where('nama', $user)->first();
+
+        return view('mahasiswa.addskripsi', compact('mahasiswa'));
     }
 
     public function addskripsi(Request $request){
