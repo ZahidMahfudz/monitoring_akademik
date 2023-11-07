@@ -97,22 +97,29 @@ class MahasiswaController extends Controller
 
     }
 
-    public function updatemahasiswa(){
-        $user = Auth::user()->name ;
-
-        $mahasiswa = Mahasiswa::where('nama', $user)->first();
-        
-
-        return view('mahasiswa.update', compact('mahasiswa'));
+    public function afterupdatemahasiswa(){
+        return view('mahasiswa.index');
     }
 
-    public function updatemhs(Request $request){   
-        $update = mahasiswa::update([
-            'jalur_masuk' =>$request->input('jalur_masuk'),
-            'email' =>$request->input('email'),
-            'no_telp'=>$request->input('no_telp')
+    public function updatemhs(Request $request){
+        $request->validate([
+            'jalur_masuk'=>'required',
+            'email'=>'required',
+            'no_telp'=>'required',
         ]);
-        return redirect('/update')->with('success', 'Data skripsi berhasil ditambahkan.');
+
+        $user = Auth::user()->name ;
+        $mahasiswa = Mahasiswa::where('nama', $user)->first();
+
+        $mahasiswa->jalur_masuk = $request->input('jalur_masuk');
+        $mahasiswa->email = $request->input('email');
+        $mahasiswa->no_hp = $request->input('no_telp');
+        $mahasiswa->alamat = $request->input('alamat');
+        $mahasiswa->kab_kota = $request->input('kab_kota');
+        $mahasiswa->provinsi = $request->input('provinsi');
+        $mahasiswa->save();
+
+        return redirect('/afterupdate/mahasiswa')->with('success', 'Data skripsi berhasil ditambahkan.');
 
     }
 }
