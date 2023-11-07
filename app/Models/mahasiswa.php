@@ -10,9 +10,10 @@ class Mahasiswa extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $fillable = ['nama']; // Ganti 'guarded' dengan 'fillable'
 
-    public function Mahasiswa():HasOne{
+    public function doswal(): HasOne // Ganti 'Mahasiswa' dengan 'doswal'
+    {
         return $this->hasOne(Doswal::class);
     }
 }

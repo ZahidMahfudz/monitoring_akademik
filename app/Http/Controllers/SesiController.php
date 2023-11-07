@@ -39,7 +39,7 @@ class SesiController extends Controller
            }
         }
         else{
-            return redirect('')->withErrors('uername dan password titdak sesuai')->withInput();
+            return redirect('')->withErrors('username dan password tidak sesuai')->withInput();
         }
     }
 

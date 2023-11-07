@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('irs', function (Blueprint $table) {
-            $table->id();
+            $table->string('nim');
+            $table->integer('semester');
+            $table->integer('sks');
+            $table->string('scanirs');
+            $table->string('status_verifikasi')->default('pending'); // Menambahkan kolom status verifikasi
             $table->timestamps();
         });
     }
