@@ -69,7 +69,11 @@ class MahasiswaController extends Controller
     }
 
     public function createaddskripsi(){
-        return view('mahasiswa.addskripsi');
+        $user = Auth::user()->name;
+
+        $mahasiswa = Mahasiswa::where('nama', $user)->first();
+
+        return view('mahasiswa.addskripsi', compact('mahasiswa'));
     }
 
     public function addskripsi(Request $request){
@@ -78,12 +82,15 @@ class MahasiswaController extends Controller
         ]);
 
         $skripsi = Skripsi::create([
-            'nama'=>$request->input(Auth::user()->name),
+            'nama'=>$request->input('nama'),
+            'NIM'=>$request->input('NIM'),
             'status'=>$request->input('status'),
             'nilai'=>$request->input('nilaiskripsi'),
             'lama_studi'=>$request->input('lamastudi'),
             'tgl_lulus_sidang'=>$request->input('tgllulussidang'),
-            'scan_berita_acara'=>$request->input('scanberita')
+            'scan_berita_acara'=>$request->input('scanberita'),
+            'aprove'=>'BELUM DISETUJUI',
+            "doswal_id"=>$request->input('doswal')
         ]);
 
         return redirect('/addskripsi')->with('success', 'Data skripsi berhasil ditambahkan.');
