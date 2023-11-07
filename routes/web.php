@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\OperatorController;
 use App\Models\Doswal;
 
@@ -37,3 +38,8 @@ Route::get('/home', function(){
 
 Route::get('/addmahasiswa', [OperatorController::class, 'create']);
 Route::post('/operator/addmahasiswa', [OperatorController::class, 'addmahasiswa']);
+
+Route::get('/addskripsi', [MahasiswaController::class, 'createaddskripsi']);
+Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
+
+

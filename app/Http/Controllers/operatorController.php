@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Mahasiswa;
-use App\Models\Doswal;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

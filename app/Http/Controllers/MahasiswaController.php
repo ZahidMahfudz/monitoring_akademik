@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\mahasiswa;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoremahasiswaRequest;
 use App\Http\Requests\UpdatemahasiswaRequest;
+use App\Models\Skripsi;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MahasiswaController extends Controller
 {
@@ -62,5 +66,27 @@ class MahasiswaController extends Controller
     public function destroy(mahasiswa $mahasiswa)
     {
         //
+    }
+
+    public function createaddskripsi(){
+        return view('mahasiswa.addskripsi');
+    }
+
+    public function addskripsi(Request $request){
+        $request -> validate([
+            'status' => 'required'
+        ]);
+
+        $skripsi = Skripsi::create([
+            'nama'=>$request->input(Auth::user()->name),
+            'status'=>$request->input('status'),
+            'nilai'=>$request->input('nilaiskripsi'),
+            'lama_studi'=>$request->input('lamastudi'),
+            'tgl_lulus_sidang'=>$request->input('tgllulussidang'),
+            'scan_berita_acara'=>$request->input('scanberita')
+        ]);
+
+        return redirect('/addskripsi')->with('success', 'Data skripsi berhasil ditambahkan.');
+
     }
 }
