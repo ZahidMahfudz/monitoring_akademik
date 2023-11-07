@@ -12,21 +12,21 @@
 <body class="form-v10">
 	<div class="page-content">
 		<div class="form-v10-content">
-			<form class="form-detail" role="form" action="" method="post" id="myform">
+			<form class="form-detail" role="form" action="/update" method="post" id="myform">
 				@csrf
 				<div class="form-left">
 					<h2>Informasi Mahasiswa</h2>
 					<div class="form-row">
                         <label for="nama">NAMA</label>
-						<input type="text" name="nama" id="nama" class="input-text" value="" disabled>
+						<input type="text" name="nama" id="nama" class="input-text" value="{{$mahasiswa->nama}}" disabled>
 					</div>
 					<div class="form-row">
                         <label for="nim">NIM</label>
-						<input type="text" name="nim" class="nim" id="nim" value="" disabled>
+						<input type="text" name="nim" class="nim" id="nim" value="{{$mahasiswa->NIM}}" disabled>
 					</div>
 					<div class="form-row">
                         <label for="angkatan">ANGKATAN</label>
-						<input type="text" name="angkatan" class="angkatan" id="angkatan" value="" disabled>
+						<input type="text" name="angkatan" class="angkatan" id="angkatan" value="{{$mahasiswa->angkatan}}" disabled>
 					</div>
 					<div class="form-row">
                         <label for="jalur_masuk">Jalur_Masuk</label>
@@ -53,7 +53,7 @@
 					</div>
                     <div class="form-row">
                         <label for="status">STATUS</label>
-						<input type="text" name="status" class="status" id="status" value="" disabled>
+						<input type="text" name="status" class="status" id="status" value="{{$mahasiswa->status}}" disabled>
 					</div>
 				</div>
 				<div class="form-right">

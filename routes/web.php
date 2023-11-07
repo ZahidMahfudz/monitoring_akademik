@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\mahasiswas;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\adminController;
@@ -43,4 +44,5 @@ Route::get('/addskripsi', [MahasiswaController::class, 'createaddskripsi']);
 Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
 
 Route::get('/update', [MahasiswaController::class, 'updatemahasiswa']);
+Route::post('/update', [MahasiswaController::class, 'updatemhs']);
 
