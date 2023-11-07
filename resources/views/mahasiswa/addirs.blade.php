@@ -8,17 +8,17 @@
 
 <body>
     <h1>IRS Mahasiswa</h1>
-    <form action="{{ route('mahasiswa.addirs.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="/mahasiswa/addirs" method="POST">
         @csrf
-        
+
         <div class="form-group">
             <label for="nama">Nama:</label>
-            <input type="text" name="nama" class="form-control" value="{{ old('nama') }}">
+            <input type="text" name="nama" class="form-control" value="{{ $mahasiswa->nama }}">
         </div>
 
         <div class="form-group">
-            <label for="nim">NIM:</label>
-            <input type="string" name="nim" class="form-control" value="{{ old('nim') }}" required>
+            <label for="NIM">NIM:</label>
+            <input type="string" name="NIM" class="form-control" value="{{ $mahasiswa->NIM }}">
         </div>
 
         <div class="form-group">
@@ -36,7 +36,16 @@
             <input type="file" name="scanirs">
         </div>
 
-        <input type="submit" name="proses" value="Upload">
+        <div>
+            <label for="doswal">Dosen Wali:</label>
+            <select name="doswal" id="doswal" class="form-control">
+                    <option value="1">APW</option>
+                    <option value="2">Malik</option>
+                    <option value="3">Eng</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Unggah Data</button>
 
     </form>
 

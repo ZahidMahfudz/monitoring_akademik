@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\irs;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreirsRequest;
 use App\Http\Requests\UpdateirsRequest;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Mahasiswa;
 
 class IrsController extends Controller
 {
@@ -24,7 +27,9 @@ class IrsController extends Controller
      */
     public function create()
     {
-        return view("mahasiswa/addirs");
+        $user = Auth::user()->name;
+        $mahasiswa = Mahasiswa::where('nama', $user)->first();
+        return view("mahasiswa.addirs", compact('mahasiswa'));
     }
 
     /**
@@ -32,41 +37,33 @@ class IrsController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'scanirs' => 'required|mimes:pdf',
-            // tambahkan aturan validasi lainnya sesuai kebutuhan
+        $request -> validate([
+            'semester' => 'required',
+            'sks' => 'required'
         ]);
 
-        if ($validator->fails()) {
-            return redirect('/mahasiswa/addirs')
-                ->withErrors($validator)
-                ->withInput();
-        }
+        $skripsi = IRS::create([
+            'nama'=>$request->input(value('nama')),
+            'nim'=>$request->input(value('NIM')),
+            'semester'=>$request->input('semester'),
+            'sks'=>$request->input('sks'),
+            'scanirs'=>$request->input('scanirs'),
+            "doswal_id"=>$request->input('doswal'),
+            'approve'=>'BELUM DISETUJUI',
+        ]);
 
-        $irs = new irs;
-        $irs->nama = $request->nama;
-        $irs->nim = $request->nim; 
-        $irs->semester = $request->semester; 
-        $irs->sks = $request->sks;
-        $originalFileName = $request->file('scanirs')->getClientOriginalName();
-        
-        // Menyimpan berkas dengan nama asli
-        $irs->scanirs = $request->file('scanirs')->storeAs('pdfs', $originalFileName);
-
-        $irs->save();
-
-        return redirect('/mahasiswa/addirs');
+        return redirect('/addIRS');
     }
-        
+
         //->with('success', 'Buku Berhasil Ditambahkan!');
 
     /**
      * Display the specified resource.
      */
-    
+
     public function show(irs $irs)
     {
-        
+
     }
 
     /**

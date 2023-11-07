@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('irs', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('nim');
-            $table->integer('semester');
-            $table->integer('sks');
-            $table->string('scanirs');
-            $table->enum('approve', ['BELUM DISETUJUI', 'SUDAH DISETUJUI']);
+            $table->string('nama')->nullable();
+            $table->string('nim')->nullable();
+            $table->integer('semester')->nullable();
+            $table->integer('sks')->nullable();
+            $table->string('scanirs')->nullable();
+            $table->enum('approve', ['BELUM DISETUJUI', 'SUDAH DISETUJUI'])->nullable();
+            $table->foreignId('doswal_id')->nullable();
             $table->timestamps();
         });
     }

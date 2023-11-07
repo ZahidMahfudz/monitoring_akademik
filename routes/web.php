@@ -46,3 +46,6 @@ Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
 
 Route::get('/afterupdate/mahasiswa', [MahasiswaController::class, 'afterupdatemahasiswa']);
 Route::put('/mahasiswa/update', [MahasiswaController::class, 'updatemhs']);
+
+Route::get('/addIRS', [IrsController::class, 'create']);
+Route::post('/mahasiswa/addirs', [IrsController::class, 'store']);
