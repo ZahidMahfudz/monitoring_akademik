@@ -7,6 +7,7 @@ use App\Http\Controllers\SesiController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\OperatorController;
+use App\Http\Controllers\IrsController;
 use App\Models\Doswal;
 
 /*
@@ -45,4 +46,3 @@ Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
 
 Route::get('/update', [MahasiswaController::class, 'updatemahasiswa']);
 Route::post('/update', [MahasiswaController::class, 'updatemhs']);
-
