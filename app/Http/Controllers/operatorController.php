@@ -23,6 +23,7 @@ class OperatorController extends Controller
         'status' => 'required',
     ]);
 
+    // dd($request->all());
     $mahasiswa = Mahasiswa::create([
         'NIM' => $request->input('NIM'),
         'nama' => $request->input('nama'),

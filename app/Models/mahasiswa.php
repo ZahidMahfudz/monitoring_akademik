@@ -11,7 +11,7 @@ class Mahasiswa extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama']; // Ganti 'guarded' dengan 'fillable'
+    protected $guarded = ['id']; // Ganti 'guarded' dengan 'fillable'
 
     public function doswal(): HasOne // Ganti 'Mahasiswa' dengan 'doswal'
     {

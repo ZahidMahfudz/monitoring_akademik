@@ -2,7 +2,7 @@
 <link href="/css/srs1.css" rel="stylesheet">
     @csrf
     <div class="form-group">
-        <label for="nim">NIM:</label>
+        <label for="NIM">NIM:</label>
         <input type="text" name="NIM" class="form-control" value="{{ old('NIM') }}" required>
     </div>
 
