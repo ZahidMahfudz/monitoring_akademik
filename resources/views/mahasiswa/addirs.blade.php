@@ -49,6 +49,8 @@
 
     </form>
 
+    <a href="/afterupdate/mahasiswa">kembali</a>
+
 <?php
 $koneksi = mysqli_connect("localhost","root","","monitoring-akademik");
 

@@ -58,6 +58,8 @@
         <button type="submit" class="btn btn-primary">submit</button>
 
     </form>
+
+    <a href="/afterupdate/mahasiswa">kembali</a>
 </body>
 </html>
 
