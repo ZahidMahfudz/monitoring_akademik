@@ -47,3 +47,10 @@ Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
 
 Route::get('/update', [MahasiswaController::class, 'updatemahasiswa']);
 Route::post('/update', [MahasiswaController::class, 'updatemhs']);
+
+Route::get('/mahasiswa/addirs', [IrsController::class, 'create']);
+Route::post('/mahasiswa/addirs', [IrsController::class, 'store'])->name('mahasiswa.addirs.store');
+
+Route::get('/dosenwali/verification', [DoswalController::class, 'verificationmhs']);
+Route::post('/dosenwali/verification', [DoswalController::class, 'verificationmhs']);
+Route::post('/dosenwali/verification/{nim}/verify', [DoswalController::class, 'changeStatus']);
