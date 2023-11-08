@@ -7,6 +7,7 @@ use App\Http\Controllers\SesiController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\OperatorController;
+use App\Http\Controllers\DoswalController;
 use App\Http\Controllers\IrsController;
 use App\Models\Doswal;
 
@@ -46,3 +47,10 @@ Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
 
 Route::get('/update', [MahasiswaController::class, 'updatemahasiswa']);
 Route::post('/update', [MahasiswaController::class, 'updatemhs']);
+
+Route::get('/mahasiswa/addirs', [IrsController::class, 'create']);
+Route::post('/mahasiswa/addirs', [IrsController::class, 'store'])->name('mahasiswa.addirs.store');
+
+Route::get('/dosenwali/verification', [DoswalController::class, 'verificationmhs']);
+Route::post('/dosenwali/verification', [DoswalController::class, 'verificationmhs']);
+Route::post('/dosenwali/verification/{nim}/verify', [DoswalController::class, 'changeStatus']);

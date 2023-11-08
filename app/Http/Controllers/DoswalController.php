@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\doswal;
+use App\Models\Doswal;
+use App\Models\IRS;
 use App\Http\Requests\StoredoswalRequest;
 use App\Http\Requests\UpdatedoswalRequest;
 
@@ -11,18 +12,23 @@ class DoswalController extends Controller
     /**
      * Display a listing of the resource.
      */
-    function verification()
+    function verificationmhs()
     {
         $irs = irs::all();
-        return view('sesi/verification')->with("irs", $irs);
+        return view('/dosenwali/verification')->with("irs", $irs);
     }
 
     function changeStatus($nim)
     {
-        $irs = irs::find($nim);
-        $irs->idstatus = 1;
+        $irs = irs::where('nim', $nim)->first();
+
+        if (!$irs) {
+            return redirect('/dashboard')->with('error', 'IRS tidak ditemukan.');
+        }
+
+        $irs->approve = 'SUDAH DISETUJUI';
         $irs->save();
-        return redirect('/dashboard')->with('success', 'Berhasil Balikin Buku !');
+        return redirect('/dosenwali/verification');
     }
     
     public function index()
