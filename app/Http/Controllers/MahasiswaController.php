@@ -122,4 +122,17 @@ class MahasiswaController extends Controller
         return redirect('/afterupdate/mahasiswa')->with('success', 'Data skripsi berhasil ditambahkan.');
 
     }
+
+    public function coba()
+    {
+        return view('mahasiswa.search');
+    }
+
+    public function search(Request $request)
+    {
+        $nim = $request->input('nim');
+        $mahasiswa = Mahasiswa::where('nim', $nim)->first();
+
+        return view('mahasiswa.search', ['mahasiswa' => $mahasiswa]);
+    }
 }

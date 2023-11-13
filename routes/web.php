@@ -47,6 +47,9 @@ Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
 
 Route::get('/update', [MahasiswaController::class, 'updatemahasiswa']);
 Route::post('/update', [MahasiswaController::class, 'updatemhs']);
+// Route::get('/search', [MahasiswaController::class, 'search']);
+Route::get('/search', [MahasiswaController::class, 'search'])->name('mahasiswa.search');
+
 
 Route::get('/mahasiswa/addirs', [IrsController::class, 'create']);
 Route::post('/mahasiswa/addirs', [IrsController::class, 'store'])->name('mahasiswa.addirs.store');
