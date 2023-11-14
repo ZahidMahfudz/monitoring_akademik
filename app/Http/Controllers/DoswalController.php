@@ -30,6 +30,25 @@ class DoswalController extends Controller
         $irs->save();
         return redirect('/dosenwali/verification');
     }
+
+    public function coba()
+    {
+        return view('mahasiswa.search');
+    }
+
+    public function search(Request $request){
+        $nim = $request->mahasiswa;
+        if ($nim){
+            $mahasiswas = Mahasiswa::where('nim', 'like', '%' . $nim . '%')
+                ->orWhere('nama', 'like', '%' . $nim . '%')
+                ->get();
+            
+        }   else{
+            $mahasiswas = Mahasiswa::all();
+        }
+            
+        return view('mahasiswa.search',['mhs'=>$mahasiswas]);
+    }
     
     public function index()
     {

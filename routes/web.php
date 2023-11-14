@@ -9,6 +9,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\DoswalController;
 use App\Http\Controllers\IrsController;
+use App\Http\Controllers\KhsController;
 use App\Models\Doswal;
 
 /*
@@ -46,14 +47,8 @@ Route::get('/addskripsi', [MahasiswaController::class, 'createaddskripsi']);
 Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
 
 Route::get('/update', [MahasiswaController::class, 'updatemahasiswa']);
-Route::post('/update', [MahasiswaController::class, 'updatemhs']);
-// Route::get('/search', [MahasiswaController::class, 'search']);
-Route::get('/search', [MahasiswaController::class, 'search'])->name('mahasiswa.search');
+Route::put('/mahasiswa/update', [MahasiswaController::class, 'updatemhs']);
+Route::get('/afterupdate/mahasiswa', [MahasiswaController::class, 'afterupdatemahasiswa']);
 
-
-Route::get('/mahasiswa/addirs', [IrsController::class, 'create']);
-Route::post('/mahasiswa/addirs', [IrsController::class, 'store'])->name('mahasiswa.addirs.store');
-
-Route::get('/dosenwali/verification', [DoswalController::class, 'verificationmhs']);
-Route::post('/dosenwali/verification', [DoswalController::class, 'verificationmhs']);
-Route::post('/dosenwali/verification/{nim}/verify', [DoswalController::class, 'changeStatus']);
+Route::get('/addIRS', [IrsController::class, 'create']);
+Route::post('/mahasiswa/addirs', [IrsController::class, 'store']);

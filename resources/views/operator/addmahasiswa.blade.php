@@ -1,3 +1,7 @@
+@extends('layoutsoperator.main')
+
+@section('main_content')
+
 <form method="POST" action="/operator/addmahasiswa">
 <link href="/css/srs1.css" rel="stylesheet">
     @csrf
@@ -41,3 +45,6 @@
 
     <button type="submit" class="btn btn-primary">Unggah Data</button>
 </form>
+
+
+@endsection
