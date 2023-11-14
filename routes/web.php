@@ -11,6 +11,7 @@ use App\Http\Controllers\DoswalController;
 use App\Http\Controllers\IrsController;
 use App\Http\Controllers\KhsController;
 use App\Models\Doswal;
+use Illuminate\Routing\RouteRegistrar;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,8 +48,9 @@ Route::get('/addskripsi', [MahasiswaController::class, 'createaddskripsi']);
 Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
 
 Route::get('/update', [MahasiswaController::class, 'updatemahasiswa']);
-Route::post('/update', [MahasiswaController::class, 'updatemhs']);
+Route::put('/mahasiswa/update', [MahasiswaController::class, 'updatemhs']);
 // Route::get('/search', [MahasiswaController::class, 'search']);
+Route::get('/afterupdate/mahasiswa', [MahasiswaController::class, 'afterupdatemahasiswa']);
 Route::get('/search', [MahasiswaController::class, 'search'])->name('mahasiswa.search');
 
 
