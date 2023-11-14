@@ -1,0 +1,80 @@
+/* Reset some default styles */
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply some basic styling to the body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Style the container */
+.container-fluid {
+    padding: 0;
+}
+
+/* Style the sidebar */
+.sidebar {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* Style the offcanvas */
+.offcanvas-header {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.offcanvas-title {
+    font-size: 1.5rem;
+}
+
+.offcanvas-body {
+    padding: 1rem;
+}
+
+/* Style the navigation links */
+.nav-link {
+    color: #495057;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.nav-link:hover {
+    background-color: #e2e3e5;
+}
+
+/* Style the active link */
+.nav-link.active {
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Style the icons */
+.bi {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    fill: currentColor;
+}
+
+/* Add some spacing between elements */
+.gap-2 {
+    margin-right: 0.5rem;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .offcanvas-md {
+        display: block;
+    }
+}
+
+/* Style the main content area */
+.main-content {
+    padding: 20px;
+}

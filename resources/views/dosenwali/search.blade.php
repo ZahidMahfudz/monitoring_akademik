@@ -4,3 +4,9 @@
     <input type="text" name="mahasiswa" id="mahasiswa" placeholder="Masukkan NIM or Nama" required>
     <button type="submit">Cari</button>
 </form>
+
+<div class="mboh">
+    <h1>{{ $mahasiswa->nama }}</h1>
+    <h1>{{ $mahasiswa->nim }}</h1>
+</div>
+

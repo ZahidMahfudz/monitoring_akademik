@@ -48,11 +48,14 @@ Route::get('/addskripsi', [MahasiswaController::class, 'createaddskripsi']);
 Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
 
 Route::get('/update', [MahasiswaController::class, 'updatemahasiswa']);
-Route::put('/mahasiswa/update', [MahasiswaController::class, 'updatemhs']);
+Route::post('/update', [MahasiswaController::class, 'updatemhs']);
 // Route::get('/search', [MahasiswaController::class, 'search']);
-Route::get('/afterupdate/mahasiswa', [MahasiswaController::class, 'afterupdatemahasiswa']);
 Route::get('/search', [MahasiswaController::class, 'search'])->name('mahasiswa.search');
 
 
-Route::get('/addIRS', [IrsController::class, 'create']);
-Route::post('/mahasiswa/addirs', [IrsController::class, 'store']);
+Route::get('/mahasiswa/addirs', [IrsController::class, 'create']);
+Route::post('/mahasiswa/addirs', [IrsController::class, 'store'])->name('mahasiswa.addirs.store');
+
+Route::get('/dosenwali/verification', [DoswalController::class, 'verificationmhs']);
+Route::post('/dosenwali/verification', [DoswalController::class, 'verificationmhs']);
+Route::post('/dosenwali/verification/{nim}/verify', [DoswalController::class, 'changeStatus']);

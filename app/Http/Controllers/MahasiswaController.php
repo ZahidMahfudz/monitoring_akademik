@@ -123,16 +123,22 @@ class MahasiswaController extends Controller
 
     }
 
-    public function coba()
-    {
-        return view('mahasiswa.search');
-    }
+    // public function coba()
+    // {
+    //     return view('mahasiswa.search');
+    // }
 
-    public function search(Request $request)
-    {
-        $nim = $request->input('nim');
-        $mahasiswa = Mahasiswa::where('nim', $nim)->first();
-
-        return view('mahasiswa.search', ['mahasiswa' => $mahasiswa]);
-    }
+    // public function search(Request $request){
+    //     $nim = $request->mahasiswa;
+    //     if ($nim){
+    //         $mahasiswas = Mahasiswa::where('nim', 'like', '%' . $nim . '%')
+    //             ->orWhere('nama', 'like', '%' . $nim . '%')
+    //             ->get();
+            
+    //     }   else{
+    //         $mahasiswas = Mahasiswa::all();
+    //     }
+            
+    //     return view('mahasiswa.search',['mhs'=>$mahasiswas]);
+    // }
 }
