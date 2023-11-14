@@ -8,6 +8,7 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\IrsController;
+use App\Http\Controllers\KhsController;
 use App\Models\Doswal;
 
 /*
@@ -49,3 +50,6 @@ Route::put('/mahasiswa/update', [MahasiswaController::class, 'updatemhs']);
 
 Route::get('/addIRS', [IrsController::class, 'create']);
 Route::post('/mahasiswa/addirs', [IrsController::class, 'store']);
+
+Route::get('/addKHS', [KhsController::class, 'create']);
+Route::post('/mahasiswa/addkhs', [KhsController::class, 'store']);

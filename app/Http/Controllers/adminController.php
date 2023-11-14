@@ -10,7 +10,7 @@ use App\Models\Mahasiswa;
 class adminController extends Controller
 {
     function index(){
-        echo "selamat datang anjing";
+        echo "Kamu coba nerobos ya, jangan diulang ya";
         echo "<h1>". Auth::user()->name ."</h1>";
         echo "<a href='/logout'>Logout</a>";
     }

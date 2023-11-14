@@ -49,9 +49,9 @@
         <div>
             <label for="doswal">Dosen Wali:</label>
             <select name="doswal" id="doswal" class="form-control">
-                    <option value="1">APW</option>
-                    <option value="2">Malik</option>
-                    <option value="3">Eng</option>
+                    <option value="1">PAK ARIS</option>
+                    <option value="2">PAK Malik</option>
+                    <option value="3">PAK EDI</option>
             </select>
         </div>
 

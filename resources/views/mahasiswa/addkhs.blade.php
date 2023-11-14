@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengambilan IRS</title>
+    <title>Input KHS</title>
 </head>
 
 <body>
-    <h1>IRS Mahasiswa</h1>
-    <form action="/mahasiswa/addirs" method="POST">
+    <h1>Input KHS Mahasiswa</h1>
+    <form action="/mahasiswa/addkhs" method="POST">
         @csrf
 
         <div class="form-group">
@@ -27,21 +27,26 @@
         </div>
 
         <div class="form-group">
-            <label for="sks">SKS:</label>
+            <label for="sks_semester">SKS:</label>
             <input type="number" name="sks" class="form-control" value="{{ old('sks') }}" required>
         </div>
 
         <div class="form-group">
-            <label for="scanirs">Scan IRS:</label>
-            <input type="file" name="scanirs">
+            <label for="sks_kumulatif">SKS Kumulatif:</label>
+            <input type="number" name="sks" class="form-control" value="{{ old('sks') }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="scankhs">Scan KHS:</label>
+            <input type="file" name="scankhs">
         </div>
 
         <div>
             <label for="doswal">Dosen Wali:</label>
             <select name="doswal" id="doswal" class="form-control">
-                    <option value="1">Pak ARIS</option>
-                    <option value="2">PAK MALIK</option>
-                    <option value="3">pak Edi</option>
+                    <option value="1">PAK ARIS</option>
+                    <option value="2">PAK Malik</option>
+                    <option value="3">PAK Edi</option>
             </select>
         </div>
 
@@ -50,22 +55,6 @@
     </form>
 
     <a href="/afterupdate/mahasiswa">kembali</a>
-
-<?php
-$koneksi = mysqli_connect("localhost","root","","monitoring-akademik");
-
-if(isset($_POST['proses'])) {
-
-$direktori = "berkasppl/";
-$file_name = $_FILES['scanirs']['name'];
-move_uploaded_file($_FILES['scanirs']['tmp_name'],$direktori.$file_name);
-
-mysqli_query($koneksi, "insert into dokumen set file='$file_name'");
-
-echo "<b>File berhasil diupload";
-}
-
-?>
 
 </body>
 </html>
