@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input KHS</title>
-</head>
+@extends('layoutsmahasiswa.main')
 
-<body>
+@section('main_content')
     <h1>Input KHS Mahasiswa</h1>
-    <form action="/mahasiswa/addkhs" method="POST">
+    <form action="/mahasiswa/storekhs" method="POST">
         @csrf
 
         <div class="form-group">
@@ -28,12 +22,17 @@
 
         <div class="form-group">
             <label for="sks_semester">SKS:</label>
-            <input type="number" name="sks" class="form-control" value="{{ old('sks') }}" required>
+            <input type="number" name="sks_semester" class="form-control" value="{{ old('sks_semester') }}" required>
         </div>
 
         <div class="form-group">
             <label for="sks_kumulatif">SKS Kumulatif:</label>
-            <input type="number" name="sks" class="form-control" value="{{ old('sks') }}" required>
+            <input type="number" name="sks_kumulatif" class="form-control" value="{{ old('sks_kumulatif') }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ip">IP semester:</label>
+            <input type="number" name="ip" class="form-control" value="{{ old('ip') }}" step="0.01" required>
         </div>
 
         <div class="form-group">
@@ -55,6 +54,8 @@
     </form>
 
     <a href="/afterupdate/mahasiswa">kembali</a>
+@endsection
 
-</body>
-</html>
+<head>
+    <title>Input KHS</title>
+</head>

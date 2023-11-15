@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Operator</title>
+    <title>Dosen Wali</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
 
@@ -98,7 +98,7 @@
 
 <main>
   <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width:15%;">
-    <a href="/admin/operator" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <a href="/afterupdate/mahasiswa" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <img class="mb-1" src="img/Logo Undip Universitas Diponegoro.png" alt="" width="50" height="50">
       {{-- <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> --}}
       <span class="fs-4">{{ Auth::user()->name }}</span>
@@ -106,15 +106,33 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li>
-        <a href="/admin/operator" class="nav-link text-white">
+        <a href="/afterupdate/mahasiswa" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
           Dashboard
         </a>
       </li>
       <li>
-        <a href="/addmahasiswa" class="nav-link text-white">
+        <a href="/mahasiswa/addirs" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-          Tambah Mahasiswa
+          Tambah IRS
+        </a>
+      </li>
+      <li>
+        <a href="/mahasiswa/addkhs" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+          Tambah KHS
+        </a>
+      </li>
+      <li>
+        <a href="/mahasiswa/addpkl" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+          Tambah PKL
+        </a>
+      </li>
+      <li>
+        <a href="/addskripsi" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+          Tambah skripsi
         </a>
       </li>
       <hr>

@@ -10,6 +10,7 @@ use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\DoswalController;
 use App\Http\Controllers\IrsController;
 use App\Http\Controllers\KhsController;
+use App\Http\Controllers\PklController;
 use App\Models\Doswal;
 use Illuminate\Routing\RouteRegistrar;
 
@@ -44,17 +45,26 @@ Route::get('/home', function(){
 Route::get('/addmahasiswa', [OperatorController::class, 'create']);
 Route::post('/operator/addmahasiswa', [OperatorController::class, 'addmahasiswa']);
 
-Route::get('/addskripsi', [MahasiswaController::class, 'createaddskripsi']);
-Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
 
 Route::get('/update', [MahasiswaController::class, 'updatemahasiswa']);
-Route::post('/update', [MahasiswaController::class, 'updatemhs']);
+Route::put('mahasiswa/update', [MahasiswaController::class, 'updatemhs']);
 // Route::get('/search', [MahasiswaController::class, 'search']);
 Route::get('/search', [MahasiswaController::class, 'search'])->name('mahasiswa.search');
+Route::get('/afterupdate/mahasiswa', [MahasiswaController::class, 'afterupdatemahasiswa']);
 
 
 Route::get('/mahasiswa/addirs', [IrsController::class, 'create']);
 Route::post('/mahasiswa/addirs', [IrsController::class, 'store'])->name('mahasiswa.addirs.store');
+
+
+Route::get('/mahasiswa/addkhs', [KhsController::class, 'create']);
+Route::post('/mahasiswa/storekhs', [KhsController::class, 'store']);
+
+Route::get('/addskripsi', [MahasiswaController::class, 'createaddskripsi']);
+Route::post('/mahasiswa/addskripsi',[MahasiswaController::class, 'addskripsi']);
+
+Route::get('/mahasiswa/addpkl',[PklController::class, 'create'] );
+Route::post('/mahasiswa/storepkl', [PklController::class, 'store']);
 
 Route::get('/dosenwali/verification', [DoswalController::class, 'verificationmhs']);
 Route::post('/dosenwali/verification', [DoswalController::class, 'verificationmhs']);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Doswal;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Mahasiswa;
 
@@ -24,9 +25,9 @@ class adminController extends Controller
 
     }
     function doswal(){
-        echo "selamat datang dosen waqli";
-        echo "<h1>". Auth::user()->name ."</h1>";
-        echo "<a href='/logout'>Logout</a>";
+        $user = Auth::user()->name ;
+        $doswal = Doswal::where('nama', $user)->first();
+        return view('dosenwali.index', compact('doswal'));
     }
     function departemen(){
         echo "selamat datang departemen";

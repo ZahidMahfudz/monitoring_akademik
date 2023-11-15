@@ -49,12 +49,13 @@ class KhsController extends Controller
             'semester'=>$request->input('semester'),
             'sks_semester'=>$request->input('sks_semester'),
             'sks_kumulatif'=>$request->input('sks_kumulatif'),
+            'ip'=>$request->input('ip'),
             'scankhs'=>$request->input('scankhs'),
-            'doswal_id'=>$request->input('doswal'),
             'approve'=>'BELUM DISETUJUI',
+            'doswal_id'=>$request->input('doswal'),
         ]);
 
-        return redirect('/addkhs');
+        return redirect('/mahasiswa/addkhs');
     }
 
     /**

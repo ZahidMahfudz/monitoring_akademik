@@ -1,8 +1,9 @@
 @extends('layoutsmahasiswa.main')
 @section('main_content')
-<h1>Tambah skripsi</h1>
-<form action="/mahasiswa/addskripsi" method="POST">
+<form action="/mahasiswa/storepkl" method="POST">
     @csrf
+
+    <h1>Tambah PKL</h1>
 
     <div class="form-group">
         <label for="nama">Nama:</label>
@@ -15,7 +16,7 @@
     </div>
 
     <div class="form-group">
-        <label for="status">Status Skripsi:</label>
+        <label for="status">Status PKL:</label>
         <select name="status" class="form-control">
             <option value="BELUM AMBIL">belum ambil</option>
             <option value="SEDANG AMBIL">sedang ambil</option>
@@ -24,22 +25,12 @@
     </div>
 
     <div class="form-group">
-        <label for="nilaiskripsi">nilai skripsi:</label>
-        <input type="text" name="nilaiskripsi" class="form-control" value="{{ old('nilaiskripsi') }}">
+        <label for="nilaipkl">nilai pkl:</label>
+        <input type="text" name="nilaipkl" class="form-control" value="{{ old('nilaipkl') }}">
     </div>
 
     <div class="form-group">
-        <label for="lamastudi">lama studi:</label>
-        <input type="number" name="lamastudi" class="form-control" value="{{ old('lamastudi') }}">
-    </div>
-
-    <div class="form-group">
-        <label for="tgllulussidang">tanggal lulus sidang:</label>
-        <input type="date" name="tgllulussidang" class="form-control" value="{{ old('tgllulussidang') }}">
-    </div>
-
-    <div class="form-group">
-        <label for="scanberita">scan berita acara sidang:</label>
+        <label for="scanberita">scan berita acara seminar:</label>
         <input type="file" name="scanberita" class="form-control" value="{{ old('scanberita') }}" accept=".pdf">
     </div>
 
@@ -58,7 +49,7 @@
 
 <a href="/afterupdate/mahasiswa">kembali</a>
 @endsection
-<head>
-    <title>Tambah Skripsi</title>
-</head>
 
+<head>
+    <title>Tambah PKL</title>
+</head>

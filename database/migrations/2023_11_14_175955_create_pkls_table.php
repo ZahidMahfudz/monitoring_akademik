@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('khs', function (Blueprint $table) {
+        Schema::create('pkls', function (Blueprint $table) {
             $table->id();
             $table->string('nama')->nullable();
-            $table->string('nim')->nullable();
-            $table->integer('semester')->nullable();
-            $table->integer('sks_semester')->nullable();
-            $table->integer('sks_kumulatif')->nullable();
-            $table->float('ip')->nullable();
-            $table->binary('scankhs')->nullable();
-            $table->enum('approve', ['BELUM DISETUJUI', 'SUDAH DISETUJUI'])->nullable();
+            $table->string('NIM')->nullable();
+            $table->enum('status', ['BELUM AMBIL', 'SEDANG AMBIL', 'LULUS'])->nullable();
+            $table->string('nilai')->nullable();
+            $table->binary('scanberita')->nullable();
+            $table->enum('approve', ['BELUM DISETUJUI', 'SUDAH DISETUJUI']);
             $table->foreignId('doswal_id')->nullable();
             $table->timestamps();
         });
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('khs');
+        Schema::dropIfExists('pkls');
     }
 };
