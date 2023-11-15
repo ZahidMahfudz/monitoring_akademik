@@ -10,7 +10,7 @@ class Doswal extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $guarded = ['nama'];
 
     public function Doswal():HasMany{
         return $this->hasMany(Mahasiswa::class);

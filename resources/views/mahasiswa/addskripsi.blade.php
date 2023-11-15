@@ -5,16 +5,6 @@
     @csrf
 
     <div class="form-group">
-        <label for="nama">Nama:</label>
-        <input type="text" name="nama" class="form-control" value="{{ $mahasiswa->nama }}">
-    </div>
-
-    <div class="form-group">
-        <label for="NIM">NIM:</label>
-        <input type="text" name="NIM" class="form-control" value="{{ $mahasiswa->NIM }}">
-    </div>
-
-    <div class="form-group">
         <label for="status">Status Skripsi:</label>
         <select name="status" class="form-control">
             <option value="BELUM AMBIL">belum ambil</option>
@@ -41,15 +31,6 @@
     <div class="form-group">
         <label for="scanberita">scan berita acara sidang:</label>
         <input type="file" name="scanberita" class="form-control" value="{{ old('scanberita') }}" accept=".pdf">
-    </div>
-
-    <div>
-        <label for="doswal">Dosen Wali:</label>
-        <select name="doswal" id="doswal" class="form-control">
-                <option value="1">PAK ARIS</option>
-                <option value="2">PAK Malik</option>
-                <option value="3">PAK EDI</option>
-        </select>
     </div>
 
     <button type="submit" class="btn btn-primary">submit</button>

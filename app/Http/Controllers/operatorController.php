@@ -29,7 +29,7 @@ class OperatorController extends Controller
         'nama' => $request->input('nama'),
         'angkatan' => $request->input('angkatan'),
         'status' => $request->input('status'),
-        'doswal_id' => $request->input('doswal'),
+        'doswal' => $request->input('doswal'),
     ]);
 
 

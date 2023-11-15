@@ -37,6 +37,9 @@ class KhsController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user()->name;
+        $mahasiswa = Mahasiswa::where('nama', $user)->first();
+
         $request -> validate([
             'semester' => 'required',
             'sks_semester' => 'required',
@@ -44,15 +47,15 @@ class KhsController extends Controller
         ]);
 
         $khs = khs::create([
-            'nama'=>$request->input(value('nama')),
-            'nim'=>$request->input(value('NIM')),
+            'nama'=>$mahasiswa->nama,
+            'nim'=>$mahasiswa->NIM,
             'semester'=>$request->input('semester'),
             'sks_semester'=>$request->input('sks_semester'),
             'sks_kumulatif'=>$request->input('sks_kumulatif'),
             'ip'=>$request->input('ip'),
             'scankhs'=>$request->input('scankhs'),
             'approve'=>'BELUM DISETUJUI',
-            'doswal_id'=>$request->input('doswal'),
+            'doswal'=>$mahasiswa->doswal,
         ]);
 
         return redirect('/mahasiswa/addkhs');

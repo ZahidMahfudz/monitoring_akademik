@@ -38,18 +38,21 @@ class PklController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user()->name;
+        $mahasiswa = Mahasiswa::where('nama', $user)->first();
+
         $request -> validate([
             'status' => 'required',
         ]);
 
         $pkl = pkl::create([
-            'nama'=>$request->input(value('nama')),
-            'NIM'=>$request->input(value('NIM')),
+            'nama'=>$mahasiswa->nama,
+            'NIM'=>$mahasiswa->NIM,
             'status'=>$request->input('status'),
             'nilai'=>$request->input('nilaipkl'),
             'scanberita'=>$request->input('scanberita'),
             'approve'=>'BELUM DISETUJUI',
-            'doswal_id'=>$request->input('doswal'),
+            'doswal'=>$mahasiswa->doswal,
         ]);
 
         return redirect('/afterupdate/mahasiswa');

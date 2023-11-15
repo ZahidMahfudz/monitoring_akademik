@@ -21,7 +21,7 @@ return new class extends Migration
             $table->float('ip')->nullable();
             $table->binary('scankhs')->nullable();
             $table->enum('approve', ['BELUM DISETUJUI', 'SUDAH DISETUJUI'])->nullable();
-            $table->foreignId('doswal_id')->nullable();
+            $table->string('doswal')->nullable();
             $table->timestamps();
         });
     }

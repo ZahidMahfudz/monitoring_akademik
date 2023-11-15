@@ -37,18 +37,21 @@ class IrsController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user()->name;
+        $mahasiswa = Mahasiswa::where('nama', $user)->first();
+
         $request -> validate([
             'semester' => 'required',
             'sks' => 'required'
         ]);
 
         $skripsi = IRS::create([
-            'nama'=>$request->input(value('nama')),
-            'nim'=>$request->input(value('NIM')),
+            'nama'=>$mahasiswa->nama,
+            'nim'=>$mahasiswa->NIM,
             'semester'=>$request->input('semester'),
             'sks'=>$request->input('sks'),
             'scanirs'=>$request->input('scanirs'),
-            "doswal_id"=>$request->input('doswal'),
+            "doswal"=> $mahasiswa->doswal,
             'approve'=>'BELUM DISETUJUI',
         ]);
 

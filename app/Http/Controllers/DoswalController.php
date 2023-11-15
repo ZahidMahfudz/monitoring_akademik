@@ -42,14 +42,14 @@ class DoswalController extends Controller
             $mahasiswas = Mahasiswa::where('nim', 'like', '%' . $nim . '%')
                 ->orWhere('nama', 'like', '%' . $nim . '%')
                 ->get();
-            
+
         }   else{
             $mahasiswas = Mahasiswa::all();
         }
-            
+
         return view('mahasiswa.search',['mhs'=>$mahasiswas]);
     }
-    
+
     public function index()
     {
         //

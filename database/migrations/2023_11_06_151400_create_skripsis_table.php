@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('tgl_lulus_sidang')->nullable();
             $table->binary('scan_berita_acara')->nullable();
             $table->enum('approve', ['BELUM DISETUJUI', 'SUDAH DISETUJUI']);
-            $table->foreignId('doswal_id')->nullable();
+            $table->string('doswal')->nullable();
             $table->timestamps();
         });
     }

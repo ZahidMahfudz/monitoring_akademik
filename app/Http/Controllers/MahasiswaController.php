@@ -77,20 +77,23 @@ class MahasiswaController extends Controller
     }
 
     public function addskripsi(Request $request){
+        $user = Auth::user()->name;
+        $mahasiswa = Mahasiswa::where('nama', $user)->first();
+
         $request -> validate([
             'status' => 'required'
         ]);
 
         $skripsi = Skripsi::create([
-            'nama'=>$request->input('nama'),
-            'NIM'=>$request->input('NIM'),
+            'nama'=>$mahasiswa->nama,
+            'NIM'=>$mahasiswa->NIM,
             'status'=>$request->input('status'),
             'nilai'=>$request->input('nilaiskripsi'),
             'lama_studi'=>$request->input('lamastudi'),
             'tgl_lulus_sidang'=>$request->input('tgllulussidang'),
             'scan_berita_acara'=>$request->input('scanberita'),
             'aprove'=>'BELUM DISETUJUI',
-            "doswal_id"=>$request->input('doswal')
+            'doswal'=>$mahasiswa->doswal
         ]);
 
         return redirect('/addskripsi')->with('success', 'Data skripsi berhasil ditambahkan.');
@@ -134,11 +137,11 @@ class MahasiswaController extends Controller
     //         $mahasiswas = Mahasiswa::where('nim', 'like', '%' . $nim . '%')
     //             ->orWhere('nama', 'like', '%' . $nim . '%')
     //             ->get();
-            
+
     //     }   else{
     //         $mahasiswas = Mahasiswa::all();
     //     }
-            
+
     //     return view('mahasiswa.search',['mhs'=>$mahasiswas]);
     // }
 }

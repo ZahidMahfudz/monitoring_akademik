@@ -6,19 +6,26 @@
         @csrf
 
         <div class="form-group">
-            <label for="nama">Nama:</label>
-            <input type="text" name="nama" class="form-control" value="{{ $mahasiswa->nama }}">
-        </div>
-
-        <div class="form-group">
-            <label for="NIM">NIM:</label>
-            <input type="string" name="NIM" class="form-control" value="{{ $mahasiswa->NIM }}">
-        </div>
-
-        <div class="form-group">
             <label for="semester">Semester:</label>
-            <input type="number" name="semester" class="form-control" value="{{ old('semester') }}" required>
-        </div>
+            <select name="semester" id="semester" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+            </select>
+    </div>
+
+
 
         <div class="form-group">
             <label for="sks_semester">SKS:</label>
@@ -38,15 +45,6 @@
         <div class="form-group">
             <label for="scankhs">Scan KHS:</label>
             <input type="file" name="scankhs">
-        </div>
-
-        <div>
-            <label for="doswal">Dosen Wali:</label>
-            <select name="doswal" id="doswal" class="form-control">
-                    <option value="1">PAK ARIS</option>
-                    <option value="2">PAK Malik</option>
-                    <option value="3">PAK Edi</option>
-            </select>
         </div>
 
         <button type="submit" class="btn btn-primary">Unggah Data</button>

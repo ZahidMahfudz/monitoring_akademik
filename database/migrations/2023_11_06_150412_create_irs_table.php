@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('sks')->nullable();
             $table->string('scanirs')->nullable();
             $table->enum('approve', ['BELUM DISETUJUI', 'SUDAH DISETUJUI'])->nullable();
-            $table->foreignId('doswal_id')->nullable();
+            $table->string('doswal')->nullable();
             $table->timestamps();
         });
     }

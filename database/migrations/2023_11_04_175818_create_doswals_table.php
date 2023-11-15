@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('doswals', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama')->nullable();
+            $table->string('nama')->nullable()->primary();
             $table->string('NIP')->nullable()->unique();
             $table->timestamps();
         });
